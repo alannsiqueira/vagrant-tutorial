@@ -434,7 +434,7 @@ e na area mais perto do final do arquivo, você descomenta as linhas que deseja 
 
 Após estar tudo configurado, basta somendo inicializar o box com o comando ```vagrant up --provision```
 
-*Vá tomar um café, da uma volta .. contribuir para algum projeto ... o negocio **demora** um pouco!* 
+*Vá tomar um café, da uma volta .. contribuir para algum projeto ... o negocio demora um pouco!* 
 
 **Meu arquivo fico assim, um box totalmente preparado para desenvolvimento MEAN** 
 
