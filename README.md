@@ -432,6 +432,10 @@ O VagrantFile baixado e totalmente intuitivo, qualquer pessoa com conhecimento m
 Funciona da seguinte maneira, você adiciona os parametros desejados ex: **hostname** , **IP**  , **memoria**, **processador**, **usuario/senha** 
 e na area mais perto do final do arquivo, você descomenta as linhas que deseja provisionar (*instalar*)
 
+Após estar tudo configurado, basta somendo inicializar o box com o comando ```vagrant up --provision```
+
+*Vá tomar um café, da uma volta .. contribuir para algum projeto ... o negocio **demora** um pouco!* 
+
 **Meu arquivo fico assim, um box totalmente preparado para desenvolvimento MEAN** 
 
 ```ruby
