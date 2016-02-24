@@ -14,6 +14,13 @@ Meu propósito aqui não e ganhar créditos e sim repassar conhecimento.
   - Não obtive sucesso ao tentar no ubuntu 15.10 na arquitetura x32
   - O box ficará mais genérico tendo em vista que várias pessoas (assim como eu), não tem possibilidade de virtualizar tais arquiteturas
 
+#### Versão do virtualbox 4.3.36
+- Ao usar o virtualbox 5 não consegui inicializar a rede normalmente, não querendo perder tempo com isso não fui atrás para resolver o mesmo, porem se desejar usar e encontrar a solução, nao deixe de fazer um pull-request
+
+#### Versão Vagrant 1.8.1
+
+
+
 ## Tabela de Conteúdo
 
 1. [Vagrant, o que é?](#1---vagrant-o-que-é)
@@ -133,7 +140,7 @@ sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -
 
 ```bash
 sudo apt-get install linux-headers-generic build-essential dkms
-sudo I /dev/cdrom /media/cdrom
+sudo /dev/cdrom /media/cdrom
 sudo sh /media/cdrom/VBoxLinuxAdditions.run
 ```
 
@@ -167,15 +174,16 @@ sudo passwd vagrant -d
 sudo visudo
 ```
 
-*Adicione essas linhas caso não estejam* 
+*Adicione essas linhas conforme exemplo abaixo
 ```
-Defaults env_keep="SSH_AUTH_SOCK"
-%admin ALL=NOPASSWD: ALL
-vagrant ALL=(ALL:ALL) ALL
+%admin   ALL=NOPASSWD: ALL
+vagrant  ALL=(ALL) NOPASSWD: ALL
+
 ```
 
 *Após isso seu arquivo deverá estar parecido com isso:* 
 ```bash
+#
 # This file MUST be edited with the 'visudo' command as root.
 #
 # Please consider adding local content in /etc/sudoers.d/ instead of
@@ -183,24 +191,29 @@ vagrant ALL=(ALL:ALL) ALL
 #
 # See the man page for details on how to write a sudoers file.
 #
-Defaults  env_reset
-Defaults    secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin"
-Defaults    env_keep="SSH_AUTH_SOCK"
+Defaults        env_reset
+Defaults        mail_badpass
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 # Host alias specification
+
 # User alias specification
+
 # Cmnd alias specification
 
 # User privilege specification
 root    ALL=(ALL:ALL) ALL
-vagrant ALL=(ALL:ALL) ALL
 
 # Members of the admin group may gain root privileges
-#%admin ALL=(ALL) ALL
-%admin ALL=NOPASSWD: ALL
+%admin ALL=NOPASSWD:ALL
 
 # Allow members of group sudo to execute any command
 %sudo   ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+vagrant ALL=(ALL) NOPASSWD:ALL
 
 ```
 
@@ -260,9 +273,10 @@ vagrant package --base nome-da-sua-vm --output /caminho-da-sua-pasta/nome-do-seu
 
 #### 4.1 - Importando o box localmente
 
-```bash
-vagrant box add  nome-do-seu-box.nome.da.distro.versao-plataforma file:\\//caminho-para-seu-box.box
-```
+*Notem que são 2 contra-barras no file:\\ e 2 barras no //caminho//para//seu//arquivo.box* 
+
+``` vagrant box add  nome-do-seu-box.nome.da.distro.versao-plataforma ``` **file:\\**//caminho-para-seu-box.box
+
 
 #### 4.2 - Importando no Vagrant Cloud
 
