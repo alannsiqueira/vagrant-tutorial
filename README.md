@@ -9,7 +9,7 @@ Meu propósito aqui não e ganhar créditos e sim repassar conhecimento.
 
 *Referencias estão citadas no rodapé do mesmo.*
 
-#### Nesse tutorial estarei utilizando a versão 14.04 do ubuntu na sua arquitetura de 32 bits, pelos seguintes motivos. 
+#### Nesse tutorial estarei utilizando para fazer o box,  a versão 14.04 do ubuntu na sua arquitetura de 32 bits, pelos seguintes motivos. 
   - Meu computador não consegue virtualizar arquiteturas de 64 bits.
   - Não obtive sucesso ao tentar no ubuntu 15.10 na arquitetura x32
   - O box ficará mais genérico tendo em vista que várias pessoas (assim como eu), não tem possibilidade de virtualizar tais arquiteturas
@@ -17,7 +17,12 @@ Meu propósito aqui não e ganhar créditos e sim repassar conhecimento.
 #### Versão do virtualbox 4.3.36
 - Ao usar o virtualbox 5 não consegui inicializar a rede normalmente, não querendo perder tempo com isso não fui atrás para resolver o mesmo, porem se desejar usar e encontrar a solução, nao deixe de fazer um pull-request
 
-#### Versão Vagrant 1.8.1
+Usuários usando windows 10 relataram erro ao fazer o download de boxes, na busca rápida sobre o assunto
+notei que de fato é um bug, sugiro a versão 1.7.4
+
+https://releases.hashicorp.com/vagrant/1.7.4/vagrant_1.7.4.msi
+
+#### Versão Vagrant 1.7.4
 
 
 
